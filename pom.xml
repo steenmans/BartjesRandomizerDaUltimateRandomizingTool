@@ -59,7 +59,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>com.samsteenmans.NewMain</mainClass>
+                    <mainClass>com.samsteenmans.MainForJar</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -75,7 +75,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        com.samsteenmans.NewMain
+                                        com.samsteenmans.MainForJar
                                     </mainClass>
                                 </manifest>
                             </archive>

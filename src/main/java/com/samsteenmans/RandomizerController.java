@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -33,6 +34,9 @@ public class RandomizerController {
 
     @FXML
     private ProgressBar progressBar;
+
+    @FXML
+    private ImageView imageView1,imageView2,imageView3,imageView4,imageView5,imageView6,imageView7,imageView8,imageView9,imageView10;
 
     //Variabelen
     private String bronAbsolutePath;
@@ -124,8 +128,9 @@ public class RandomizerController {
                 } else {
                     //Randomize the shit out of it
 
-                    //Show progressBar
+                    //Show progressBar and image
                     progressBar.setVisible(true);
+
 
                     //Make list with numbers to copy
                     for (int i = 0; i < aantalNummers; i++) {
@@ -145,8 +150,52 @@ public class RandomizerController {
 
                         //Java Fx
                         double position = i + 1;
+                        double positionFinal = position / filesBronAfterRandomizeList.size();
+
+                        //Images laten zien
+                        if(positionFinal >= 0.1){
+                            imageView1.setVisible(true);
+                        } if(positionFinal >= 0.2){
+                            imageView2.setVisible(true);
+                        } if(positionFinal >= 0.3){
+                            imageView3.setVisible(true);
+                        } if(positionFinal >= 0.4){
+                            imageView4.setVisible(true);
+                        } if(positionFinal >= 0.5){
+                            imageView5.setVisible(true);
+                        } if(positionFinal >= 0.6){
+                            imageView6.setVisible(true);
+                        } if(positionFinal >= 0.7){
+                            imageView7.setVisible(true);
+                        } if(positionFinal >= 0.8){
+                            imageView8.setVisible(true);
+                        } if(positionFinal >= 0.9){
+                            imageView9.setVisible(true);
+                        }
+
+                        //Images laten verdwijnen
+                        if(positionFinal >= 0.91){
+                            imageView9.setVisible(false);
+                        } if(positionFinal >= 0.92){
+                            imageView8.setVisible(false);
+                        } if(positionFinal >= 0.93){
+                            imageView7.setVisible(false);
+                        } if(positionFinal >= 0.94){
+                            imageView6.setVisible(false);
+                        } if(positionFinal >= 0.95){
+                            imageView5.setVisible(false);
+                        } if(positionFinal >= 0.96){
+                            imageView4.setVisible(false);
+                        } if(positionFinal >= 0.97){
+                            imageView3.setVisible(false);
+                        } if(positionFinal >= 0.98){
+                            imageView2.setVisible(false);
+                        } if(positionFinal >= 0.99){
+                            imageView1.setVisible(false);
+                        }
+
                         Platform.runLater(() -> {
-                            progressBar.setProgress(position / filesBronAfterRandomizeList.size());
+                            progressBar.setProgress(positionFinal);
                         });
 
                         try {
@@ -162,7 +211,7 @@ public class RandomizerController {
 
                 //Renew Fx
                 Platform.runLater(() -> {
-                    //remove progressbar
+                    //remove progressbar and images
                     progressBar.setVisible(false);
                     //Show alert
                     alert.show();
